@@ -9,6 +9,7 @@ import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/presentation/bloc/theme_cubit.dart';
+import 'package:spotify/presentation/pages/auth/signup_or_signin.dart';
 
 class ChooseModePage extends StatelessWidget {
   const ChooseModePage({super.key});
@@ -53,9 +54,13 @@ class ChooseModePage extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<ThemeCubit>()
-                                .updateTheme(ThemeMode.dark);
+                            try {
+                              context
+                                  .read<ThemeCubit>()
+                                  .updateTheme(ThemeMode.dark);
+                            } catch (error) {
+                              print("Error updating theme: $error");
+                            }
                           },
                           child: ClipOval(
                             child: BackdropFilter(
@@ -134,7 +139,7 @@ class ChooseModePage extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  const ChooseModePage()));
+                                  const SignupOrSigninPage()));
                     },
                     title: 'Continue')
               ],

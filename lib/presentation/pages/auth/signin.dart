@@ -12,7 +12,7 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _signinText(context),
+      bottomNavigationBar: _registerText(context),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -25,7 +25,7 @@ class SigninPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _registerText(),
+            _signinText(),
             const SizedBox(
               height: 20,
             ),
@@ -61,7 +61,7 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _registerText() {
+  Widget _signinText() {
     return const Text(
       "Sign In",
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
@@ -91,7 +91,7 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _signinText(BuildContext context) {
+  Widget _registerText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
